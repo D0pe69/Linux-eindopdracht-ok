@@ -1,0 +1,67 @@
+#!/bin/bash
+# Setup hoofdserver
+
+
+#installeren essentials.
+
+sudo apt-get update
+
+#Apache Uitvogelen hoe je automatisch alles accepteert
+sudo apt-get install apache2 -y
+
+#Php
+sudo apt-get install php -y 
+
+#wellicht ffe uitvogelen hoe je het wachtwoord invoert via script 
+sudo apt-get install mysql-server -y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Configureren MySQL
+sudo mysql_install_db
+
+sudo /usr/bin/mysql_secure_installation
