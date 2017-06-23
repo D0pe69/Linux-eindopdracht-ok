@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Dit script gaat als het goed is zometeen salt installeren|||| https://docs.saltstack.com/en/latest/topics/installation/ubuntu.html
+
+
+#Wordt root
+sudo -i
+
+#Het installeren van de packages
+apt-get install salt-api -y
+apt-get install salt-cloud -y
+apt-get install salt-master -y
+apt-get install salt-minion -y
+apt-get install salt-ssh -y
+apt-get install salt-syndic -y
+
+#Alternatieve methode, uitvinden welke beter is.|| https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
+sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update
+sudo apt-get install salt-master salt-minion salt-ssh salt-cloud salt-doc
