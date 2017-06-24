@@ -40,29 +40,9 @@ sed -i 's/file_recv: False/file_recv: True/g' /etc/salt/master
 sed -i 's/master: salt/master: 127.0.0.1/g' /etc/salt/minion
 
 #herstarten en accepteren van de salt keys
-
 apt install upstart -y
 
 #Momenteel krijg ik de foutmelding unable to connect to Upstart: Fauled to connect to socket /com/ubuntu....
 #Morgen verder uitzoeken
-#restart salt-master  || Omdat ubuntu vanaf geen gebruik meer maakt van upstart werken deze commands niet
-#restart salt-minion
-
-#restart salt master
-service salt-master restart
-
-#restart salt minion
-service salt-minion restart
-
-#De main moet de key van de minion accepteren
-salt-key --list all
-
-
-
-
-
-
-
-
-
-
+restart salt-master
+restart salt-minion
