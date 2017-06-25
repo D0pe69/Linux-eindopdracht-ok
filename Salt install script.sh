@@ -11,18 +11,33 @@ echo "127.0.0.1 master" >> /etc/hosts
 #Wordt root
 sudo -i
 
-#Het installeren van de packages
-apt-get install salt-api -y
-apt-get install salt-cloud -y
-apt-get install salt-master -y
-apt-get install salt-minion -y
-apt-get install salt-ssh -y
-apt-get install salt-syndic -y
 
-#Alternatieve methode, uitvinden welke beter is.|| https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
-sudo add-apt-repository ppa:saltstack/salt
-sudo apt-get update
-sudo apt-get install salt-master salt-minion salt-ssh salt-cloud salt-doc
+
+
+
+	#Het installeren van de packages ||Deze manier werkte niet
+	#apt-get install salt-api -y
+	#apt-get install salt-cloud -y
+	#apt-get install salt-master -y
+	#apt-get install salt-minion -y
+	#apt-get install salt-ssh -y
+	#apt-get install salt-syndic -y
+
+	#Alternatieve methode, uitvinden welke beter is.|| https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
+	#sudo add-apt-repository ppa:saltstack/salt
+	#sudo apt-get update
+	#sudo apt-get install salt-master salt-minion salt-ssh salt-cloud salt-doc
+
+
+
+#Installatie aan de hand van de officiele salt docks https://repo.saltstack.com/#ubuntu
+wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add - -y
+
+#sla file op in /etc/apt/sources.list.d/saltstack.list
+deb
+dpkg-deb --extract  http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main /etc/apt/sources.list.d/saltstack.list
+
+
 
 #Configuratie aan de hand van https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
 
@@ -34,6 +49,7 @@ sudo mkdir -p /srv/{salt,pillar}
 
 #file_recv aanzetten, hierdoor kunnen salt minions files zenden naar de master
 sed -i 's/file_recv: False/file_recv: True/g' /etc/salt/master
+
 
 
 #het configureren van de minion Daemon op de master zodat de master server Salt commands accepteert
@@ -55,6 +71,7 @@ service salt-master restart
 service salt-minion restart
 
 #De main moet de key van de minion accepteren
+#Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
 salt-key --list all
 
 
