@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #(Alle aanpassingen in de configuratie files worden door zelf geschreven sed commands uitgevoerd.
 
 #Het is de bedoeling dat dit script uiteindelijk misschien als eerste wordt gedraaid, dus een aantal setups zullen nodig zijn
@@ -85,7 +85,7 @@ salt '*' test.ping
 
 
 #Straks kan als het goed is via deze line het script automatisch gedownload worden en uitgevoerd worden
-#curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh | bash -s arg1 arg2
+#curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/install-salt-main-geenbron.sh | bash -s arg1 arg2
 
 #bash <(curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh)
 
