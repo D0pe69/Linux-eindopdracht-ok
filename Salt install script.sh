@@ -23,19 +23,19 @@ apt-get install salt-minion -y
 #apt-get install salt-ssh -y
 #apt-get install salt-syndic -y
 
-	#Alternatieve methode, uitvinden welke beter is.|| https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
-	#sudo add-apt-repository ppa:saltstack/salt
-	#sudo apt-get update
-	#sudo apt-get install salt-master salt-minion salt-ssh salt-cloud salt-doc
+#Alternatieve methode, uitvinden welke beter is.|| https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
+#sudo add-apt-repository ppa:saltstack/salt
+#sudo apt-get update
+#sudo apt-get install salt-master salt-minion salt-ssh salt-cloud salt-doc
 
 
 
-	#Installatie aan de hand van de officiele salt docks https://repo.saltstack.com/#ubuntu
-	#wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add - -y
+#Installatie aan de hand van de officiele salt docks https://repo.saltstack.com/#ubuntu
+#wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add - -y
 
-	#sla file op in /etc/apt/sources.list.d/saltstack.list
-	#deb
-	#dpkg-deb --extract  http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main /etc/apt/sources.list.d/saltstack.list
+#sla file op in /etc/apt/sources.list.d/saltstack.list19:40 26-6-2017
+#deb
+#dpkg-deb --extract  http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main /etc/apt/sources.list.d/saltstack.list
 
 
 
@@ -86,8 +86,9 @@ salt '*' test.ping
 
 
 #Straks kan als het goed is via deze line het script automatisch gedownload worden en uitgevoerd worden
-#curl -s http://server/path/script.sh | bash -s arg1 arg2
+#curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh | bash -s arg1 arg2
 
+#bash <(curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh)
 
 
 
