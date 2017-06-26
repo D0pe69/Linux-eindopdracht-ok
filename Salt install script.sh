@@ -1,6 +1,5 @@
 #!/bin/bash
 #(Alle aanpassingen in de configuratie files worden door zelf geschreven sed commands uitgevoerd.
-echo "127.0.0.1 master" >> /etc/hosts
 
 #Het is de bedoeling dat dit script uiteindelijk misschien als eerste wordt gedraaid, dus een aantal setups zullen nodig zijn
 
@@ -10,6 +9,7 @@ echo "127.0.0.1 master" >> /etc/hosts
 
 #Wordt root
 sudo -i
+echo "127.0.0.1 master" >> /etc/hosts
 
 
 
