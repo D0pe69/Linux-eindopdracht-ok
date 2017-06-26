@@ -74,7 +74,7 @@ service salt-minion restart
 #Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
 salt-key --list all
 
-
+#In de minion daadwerkelijk verwijzen naar het echte ip-adress
 
 
 
