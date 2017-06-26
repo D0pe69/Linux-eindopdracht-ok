@@ -15,13 +15,13 @@ sudo -i
 
 
 
-	#Het installeren van de packages ||Deze manier werkte niet
-	#apt-get install salt-api -y
-	#apt-get install salt-cloud -y
-	#apt-get install salt-master -y
-	#apt-get install salt-minion -y
-	#apt-get install salt-ssh -y
-	#apt-get install salt-syndic -y
+Het installeren van de packages ||Deze manier werkte uiteindelijk wel, momenteel alleen master en minion installeren
+#apt-get install salt-api -y
+#apt-get install salt-cloud -y
+apt-get install salt-master -y
+apt-get install salt-minion -y
+#apt-get install salt-ssh -y
+#apt-get install salt-syndic -y
 
 	#Alternatieve methode, uitvinden welke beter is.|| https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-salt-master-and-minion-servers-on-ubuntu-14-04 
 	#sudo add-apt-repository ppa:saltstack/salt
@@ -30,12 +30,12 @@ sudo -i
 
 
 
-#Installatie aan de hand van de officiele salt docks https://repo.saltstack.com/#ubuntu
-wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add - -y
+	#Installatie aan de hand van de officiele salt docks https://repo.saltstack.com/#ubuntu
+	#wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add - -y
 
-#sla file op in /etc/apt/sources.list.d/saltstack.list
-deb
-dpkg-deb --extract  http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main /etc/apt/sources.list.d/saltstack.list
+	#sla file op in /etc/apt/sources.list.d/saltstack.list
+	#deb
+	#dpkg-deb --extract  http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main /etc/apt/sources.list.d/saltstack.list
 
 
 
@@ -47,17 +47,20 @@ sudo mkdir -p /srv/{salt,pillar}
 
 #Salt master configuratie aanpassen https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-installing-the-salt-master
 
+#Interface aanzetten waar de master naar luister, staat momenteel uitgecomment. 0.0.0.0 betekend dat de master over elke interface luister
+sed -ie 's/#interface: 0.0.0.0/interface: 0.0.0.0/g' /etc/salt/master
+
 #file_recv aanzetten, hierdoor kunnen salt minions files zenden naar de master
-sed -i 's/file_recv: False/file_recv: True/g' /etc/salt/master
+sed -i 's/#file_recv: False/file_recv: True/g' /etc/salt/master
 
 
 
 #het configureren van de minion Daemon op de master zodat de master server Salt commands accepteert
-sed -i 's/master: salt/master: 127.0.0.1/g' /etc/salt/minion
+sed -i 's/#master: salt/master: 127.0.0.1/g' /etc/salt/minion
 
 #herstarten en accepteren van de salt keys
 
-apt install upstart -y
+#apt install upstart -y
 
 #Momenteel krijg ik de foutmelding unable to connect to Upstart: Fauled to connect to socket /com/ubuntu....
 #Morgen verder uitzoeken
@@ -74,8 +77,16 @@ service salt-minion restart
 #Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
 salt-key --list all
 
-#In de minion daadwerkelijk verwijzen naar het echte ip-adress
+#Gezien het in deze fase gaat om 1 key kunnen alle keys geaccepteerd worden
+salt-key -A -y
 
+#Check of salt-master op commands reageert
+salt '*' test.ping
+#Wanneer er true komt te staan runt de service
+
+
+#Straks kan als het goed is via deze line het script automatisch gedownload worden en uitgevoerd worden
+#curl -s http://server/path/script.sh | bash -s arg1 arg2
 
 
 
