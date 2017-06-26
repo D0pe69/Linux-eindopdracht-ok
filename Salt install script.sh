@@ -74,7 +74,7 @@ service salt-master restart
 service salt-minion restart
 
 #laat 30 seconden slapen
-sleep 30s # Waits 5 seconds.
+sleep 30s 
 
 #De main moet de key van de minion accepteren
 #Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
@@ -83,13 +83,16 @@ salt-key --list all
 #Gezien het in deze fase gaat om 1 key kunnen alle keys geaccepteerd worden
 salt-key -A -y
 
+#check of keys veranderd zijn
+salt-key --list all
+
 #Check of salt-master op commands reageert
 salt '*' test.ping
 #Wanneer er true komt te staan runt de service
 
 
 #Straks kan als het goed is via deze line het script automatisch gedownload worden en uitgevoerd worden
-#curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh | bash -s arg1 arg2
+#curl -s https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash -s arg1 arg2
 
 #bash <(curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh)
 
