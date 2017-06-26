@@ -86,6 +86,7 @@ salt-key -A -y
 #check of keys veranderd zijn
 salt-key --list all
 
+sleep 10s 
 #Check of salt-master op commands reageert
 salt '*' test.ping
 #Wanneer er true komt te staan runt de service
