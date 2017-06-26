@@ -53,6 +53,18 @@ sed -ie 's/#interface: 0.0.0.0/interface: 0.0.0.0/g' /etc/salt/master
 #file_recv aanzetten, hierdoor kunnen salt minions files zenden naar de master
 sed -i 's/#file_recv: False/file_recv: True/g' /etc/salt/master
 
+#file-roots woordenboek aanmaken
+sed -ie 's/# file_roots:/file_roots:/g' /etc/salt/master
+sed -ie 's/#   base:/  base:/g' /etc/salt/master
+sed -ie 's=#     - /srv/salt/=    - /srv/salt=g' /etc/salt/master
+sed -ie '439i    - /srv/formulas' /etc/salt/master
+sed -ie 's=- /srv/formulas=     - /srv/salt/formulas=g' /etc/salt/master
+
+#Salt pillar configuration aanzetten.
+sed -ie 's/#pillar_roots:/pillar_roots:/g' /etc/salt/master
+sed -ie 's/#  base:/  base:/g' /etc/salt/master
+sed -ie 's=#    - /srv/pillar=    - /srv/pillar=g' /etc/salt/master
+
 
 
 #het configureren van de minion Daemon op de master zodat de master server Salt commands accepteert
