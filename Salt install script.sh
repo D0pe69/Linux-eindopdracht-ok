@@ -73,6 +73,9 @@ service salt-master restart
 #restart salt minion
 service salt-minion restart
 
+#laat 30 seconden slapen
+sleep 30s # Waits 5 seconds.
+
 #De main moet de key van de minion accepteren
 #Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
 salt-key --list all
