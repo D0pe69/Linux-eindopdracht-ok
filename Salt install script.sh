@@ -95,7 +95,8 @@ salt '*' test.ping
 #Straks kan als het goed is via deze line het script automatisch gedownload worden en uitgevoerd worden
 #curl -s https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash -s arg1 arg2
 
-#bash <(curl -s https://github.com/D0pe69/Linux-eindopdracht-ok/blob/master/Salt%20install%20script.sh)
+#wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
+
 
 
 
