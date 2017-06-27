@@ -111,6 +111,8 @@ salt '*' test.ping
 
 #NICE
 
+
+#dit op 1 of andere manier timed zien te krijgen
 #Accepteer salt key van minion 1
 salt-key -a minion -y
 
@@ -124,7 +126,21 @@ salt-key -a minion2 -y
 #check
 salt-key --list all
 
+#installeren van syslog
+#pak de release key
+wget -qO – http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10/Release.key | sudo apt-key add –
 
+#maak nieuwe file waar de respository inkomt
+touch /etc/apt/sources.list.d/syslog-ng
+
+#Voeg dowload toe aan file
+echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10 ./" >> /etc/apt/sources.list.d/syslog-ng
+
+#update
+apt-get update -y
+
+#installeer
+apt-get install syslog-ng-core
 
 
 

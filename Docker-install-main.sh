@@ -27,3 +27,4 @@ apt-get install -y docker-ce -y
 #verifieer dat docker runt,
 docker run hello-world
 
+
