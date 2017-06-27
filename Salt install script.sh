@@ -111,6 +111,11 @@ salt '*' test.ping
 
 #NICE
 
+#Accepteer salt key van minion 1
+salt-key -a minion -y
+
+#check
+
 
 
 
