@@ -14,4 +14,4 @@ sed -i 's/#master: salt/master: 10.5.0.142/g' /etc/salt/minion
 #herstarten minion
 service salt-minion restart
 
-#curl -s https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash -s arg1 arg2
+#curl -s https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/salt-minion2.sh | bash -s arg1 arg2

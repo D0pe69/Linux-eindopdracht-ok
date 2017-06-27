@@ -115,9 +115,13 @@ salt '*' test.ping
 salt-key -a minion -y
 
 #check
+salt-key --list all
 
 
+#Accepteer salt key van minion2
+salt-key -a minion2 -y
 
-
+#check
+salt-key --list all
 
 
