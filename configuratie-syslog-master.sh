@@ -54,4 +54,17 @@ salt 'minion2' cmd.run 'apt-get install syslog-ng-core -y'
 salt 'minion2' cmd.run 'pidof syslog-ng'
 
 #Configureer Syslopg-ng op minion
+salt 'minion' cmd.run "sed -ie 's/#destination d_net { tcp/destination d_net { tcp/g' /etc/syslog-ng/syslog-ng.conf"
+
+salt 'minion' cmd.run "sed -ie 's/127.0.0.1/10.5.0.142/g' /etc/syslog-ng/syslog-ng.conf"
+
+salt 'minion' cmd.run "sed -ie 's/#log { source(s_src); destination(d_net); };/log { source(s_src); destination(d_net); };/g' /etc/syslog-ng/syslog-ng.conf"
+
+#Configureer Syslopg-ng op minion2
+salt 'minion2' cmd.run "sed -ie 's/#destination d_net { tcp/destination d_net { tcp/g' /etc/syslog-ng/syslog-ng.conf"
+
+salt 'minion2' cmd.run "sed -ie 's/127.0.0.1/10.5.0.142/g' /etc/syslog-ng/syslog-ng.conf"
+
+salt 'minion2' cmd.run "sed -ie 's/#log { source(s_src); destination(d_net); };/log { source(s_src); destination(d_net); };/g' /etc/syslog-ng/syslog-ng.conf"
+
 
