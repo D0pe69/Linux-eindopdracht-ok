@@ -51,7 +51,7 @@ sudo mkdir -p /srv/{salt,pillar}
 sed -ie 's/#interface: 0.0.0.0/interface: 0.0.0.0/g' /etc/salt/master
 
 #file_recv aanzetten, hierdoor kunnen salt minions files zenden naar de master
-sed -i 's/#file_recv: False/file_recv: True/g' /etc/salt/master
+sed -ie 's/#file_recv: False/file_recv: True/g' /etc/salt/master
 
 #file-roots woordenboek aanmaken
 sed -ie 's/# file_roots:/file_roots:/g' /etc/salt/master
@@ -126,7 +126,7 @@ salt-key -a minion2 -y
 #check
 salt-key --list all
 
-#installeren van syslog
+#installeren van syslog aan de hand van: https://www.balabit.com/blog/installing-the-latest-syslog-ng-on-ubuntu-and-other-deb-distributions/
 #pak de release key
 wget -qO – http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10/Release.key | sudo apt-key add –
 
@@ -140,7 +140,10 @@ echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-n
 apt-get update -y
 
 #installeer
-apt-get install syslog-ng-core
+apt-get install syslog-ng-core -y
+
+
+
 
 
 

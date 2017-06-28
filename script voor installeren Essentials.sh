@@ -52,9 +52,9 @@ apt-get install syslog-ng -y
 apt install unzip
 #downloaden
 wget --content-disposition http://www.ezservermonitor.com/esm-sh/downloads/version/2.2
-unzip ezservermonitor-sh_v2.2.zip
+unzip ezservermonitor-sh_v2.2.zip -y
 
-#
+
 chmod u+x eZServerMonitor.sh
 ./eZServerMonitor.sh
 
