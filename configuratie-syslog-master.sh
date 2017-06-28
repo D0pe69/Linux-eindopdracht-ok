@@ -9,8 +9,8 @@ sed -ie 's/#source s_net { tcp(ip(127.0.0.1) port(1000)); };/source s_net { tcp(
 #Zorg ervoor dat de messages worden opgeslagen per host
 sed -ie 's=destination d_messages { file("/var/log/messages"); };=destination d_messages { file("/var/log/messages_${HOST}"); };=g' /etc/syslog-ng/syslog-ng.conf
 
-#maak een log statement die ervoor zorgt dat de externe bronnen lokaal worden opgeslagenlog {
-sed -ie '133i log { source(s_local); source(s_network); destination(d_local); };' /etc/syslog-ng/syslog-ng.conf
+#maak een log statement die ervoor zorgt dat de externe bronnen lokaal worden opgeslagen || Werkt momenteel niet dus uitgecomment
+#sed -ie '133i log { source(s_local); source(s_network); destination(d_local); };' /etc/syslog-ng/syslog-ng.conf
 
 #installeren van syslog op beide minions aan de hand van: https://www.balabit.com/blog/installing-the-latest-syslog-ng-on-ubuntu-and-other-deb-distributions/
 

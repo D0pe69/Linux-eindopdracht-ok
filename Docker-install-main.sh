@@ -16,7 +16,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 apt-get update -y
 
 #Zorg dat je vanuit docker repository installeert
-apt-cache policy docker-ce 
+apt-cache policy dockers-ce 
 
 #installeer docker daadwerkelijk
 apt-get install -y docker-ce -y
