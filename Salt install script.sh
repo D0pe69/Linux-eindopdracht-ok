@@ -86,7 +86,6 @@ service salt-master restart
 service salt-minion restart
 
 #laat 30 seconden slapen
-sleep 30s 
 
 #De main moet de key van de minion accepteren
 #Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
@@ -98,7 +97,7 @@ salt-key -A -y
 #check of keys veranderd zijn
 salt-key --list all
 
-sleep 10s 
+
 #Check of salt-master op commands reageert
 salt '*' test.ping
 #Wanneer er true komt te staan runt de service
@@ -154,7 +153,7 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 #wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
 
-#installeer salt op minions
+#installeer docker op minions
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash 
 
 #installeer monitoring service
