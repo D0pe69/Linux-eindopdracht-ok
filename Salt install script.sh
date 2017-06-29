@@ -158,4 +158,4 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash 
 
 #installeer monitoring service
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash 
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash 
