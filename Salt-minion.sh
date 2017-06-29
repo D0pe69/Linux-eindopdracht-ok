@@ -2,10 +2,10 @@
 #Wordt root
 sudo -i
 
-apt-get update -y
+
 #Minion naar hosts
 echo "127.0.0.1 minion" >> /etc/hosts
-
+apt-get update -y
 #installeer salt-minion
 apt-get install salt-minion -y
 

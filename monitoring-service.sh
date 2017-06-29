@@ -6,7 +6,7 @@ sudo -i
 #Alsnog via de EzServerMonitor aangezien netdata te zwaar is voor de windows server en ik niet in staat was het werkend te krijgen
 #op het floating ip.
 #installeer op master
-wget --content-disposition http://www.ezservermonitor.com/esm-sh/downloads/version/2.2 -y
+wget --content-disposition http://www.ezservermonitor.com/esm-sh/downloads/version/2.2 
 apt-get install unzip -y
 unzip ezservermonitor-sh_v2.2.zip 
 

@@ -86,6 +86,7 @@ service salt-master restart
 service salt-minion restart
 
 #laat 30 seconden slapen
+sleep(10)
 
 #De main moet de key van de minion accepteren
 #Er worden momenteel geen keys gevonden, dus wellicht moet ik in de configuratie file wat  aanpassen.
@@ -97,6 +98,7 @@ salt-key -A -y
 #check of keys veranderd zijn
 salt-key --list all
 
+salt-key -A -y
 
 #Check of salt-master op commands reageert
 salt '*' test.ping
@@ -130,6 +132,7 @@ salt-key --list all
 #opzetten logging service
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/configuratie-syslog-master.sh | bash
 
+sleep(10)
 
 #installeren van syslog aan de hand van: https://www.balabit.com/blog/installing-the-latest-syslog-ng-on-ubuntu-and-other-deb-distributions/
 #pak de release key
@@ -142,19 +145,20 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 #echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10 ./" >> /etc/apt/sources.list.d/syslog-ng
 
 #update
-apt-get update -y
+#apt-get update -y
 
 #installeer
 #apt-get install syslog-ng-core -y
 
 #installeer docker op main
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash
-
+sleep(10)
 #wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
 
 #installeer docker op minions
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash 
-
+sleep(10)
 #installeer monitoring service
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash 
+sleep(10)
