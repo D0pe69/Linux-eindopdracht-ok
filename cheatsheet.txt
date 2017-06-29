@@ -1,0 +1,7 @@
+https://devops.profitbricks.com/tutorials/configure-remote-logging-with-rsyslog/
+
+chmod u+x eZServerMonitor.sh
+./eZServerMonitor.sh
+
+grep minion /var/log/messages
+

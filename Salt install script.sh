@@ -11,7 +11,7 @@
 sudo -i
 echo "127.0.0.1 master" >> /etc/hosts
 
-apt-get update -y
+#apt-get update -y
 
 
 
@@ -104,6 +104,8 @@ salt '*' test.ping
 #Wanneer er true komt te staan runt de service
 
 
+
+
 #Straks kan als het goed is via deze line het script automatisch gedownload worden en uitgevoerd worden
 #curl -s https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash -s arg1 arg2
 
@@ -126,25 +128,30 @@ salt-key -a minion2 -y
 #check
 salt-key --list all
 
+#opzetten logging service
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/configuratie-syslog-master.sh | bash
+
+
 #installeren van syslog aan de hand van: https://www.balabit.com/blog/installing-the-latest-syslog-ng-on-ubuntu-and-other-deb-distributions/
 #pak de release key
-wget -qO – http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10/Release.key | sudo apt-key add –
+#wget -qO – http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10/Release.key | sudo apt-key add –
 
 #maak nieuwe file waar de respository inkomt
-touch /etc/apt/sources.list.d/syslog-ng
+#touch /etc/apt/sources.list.d/syslog-ng
 
 #Voeg dowload toe aan file
-echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10 ./" >> /etc/apt/sources.list.d/syslog-ng
+#echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_16.10 ./" >> /etc/apt/sources.list.d/syslog-ng
 
 #update
 apt-get update -y
 
 #installeer
-apt-get install syslog-ng-core -y
+#apt-get install syslog-ng-core -y
 
+#installeer docker op main
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash
 
-#wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt-minion.sh | bash
+#wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
 
 

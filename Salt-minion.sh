@@ -19,5 +19,3 @@ service salt-minion restart
 
 
 
-
-
