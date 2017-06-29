@@ -155,5 +155,5 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 
 
 #installeer salt op minions
-
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash 
 
