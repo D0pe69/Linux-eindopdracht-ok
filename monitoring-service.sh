@@ -16,7 +16,7 @@ chmod u+x eZServerMonitor.sh
 #Voor uitvoeren
 #./eZServerMonitor.sh --all
 
-
+#?
 
 
 
