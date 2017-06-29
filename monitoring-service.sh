@@ -17,10 +17,10 @@ yes | bash <(curl -Ss https://my-netdata.io/kickstart.sh)
 
 
 #Maak van main een registry zodat alle dingen er weergegeven kunnen worden
-#sed -ie '88s/# enabled = no/enabled = yes/' /etc/netdata/netdata.conf
+sed -ie '88s/# enabled = no/enabled = yes/' /etc/netdata/netdata.conf
 
 #Ip adres als regisry zetten
-#sed -ie 's*# registry to announce = https://registry.my-netdata.io*registry to announce = 10.5.0.142*' /etc/netdata/netdata.conf
+sed -ie 's*# registry to announce = https://registry.my-netdata.io*registry to announce = 10.5.0.142*' /etc/netdata/netdata.conf
 
 service netdata restart
 #Installeren monitoring service op minions
@@ -32,9 +32,9 @@ salt 'minion' cmd.run 'yes |curl -Ss https://my-netdata.io/kickstart.sh'
 
 
 #registry option aanzetten
-#salt 'minion' cmd.run "sed -ie '88s/# enabled = no/enabled = no/' /etc/netdata/netdata.conf"
+salt 'minion' cmd.run "sed -ie '88s/# enabled = no/enabled = no/' /etc/netdata/netdata.conf"
 
 #registry op de master zetten
-#salt 'minion' cmd.run "sed -ie 's*# registry to announce = https://registry.my-netdata.io*registry to announce = 10.5.0.142*' /etc/netdata/netdata.conf"
+salt 'minion' cmd.run "sed -ie 's*# registry to announce = https://registry.my-netdata.io*registry to announce = 10.5.0.142*' /etc/netdata/netdata.conf"
 
-#salt 'minion' cmd.run 'service netdata restart'
+salt 'minion' cmd.run 'service netdata restart'
