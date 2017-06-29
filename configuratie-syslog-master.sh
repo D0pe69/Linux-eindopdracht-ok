@@ -78,6 +78,11 @@ sudo -i
 
 #na behoorlijke struggles heb ik er besloten geen gebruik te maken van syslog, maar alles via Rsyslog te doen ||https://devops.profitbricks.com/tutorials/configure-remote-logging-with-rsyslog/
 #Laat TCP logs toe in de firewall op poort 514
+
+#installeer rsyslog
+apt-get install rsyslog rsyslog-doc
+
+#laat toe op firewall
 ufw allow 514/tcp
 
 #configureer rsyslog om logs te ontvangen
@@ -88,6 +93,7 @@ service rsyslog restart
 
 
 #configuratie minions
+salt 'minion' cmd.run 'apt-get install rsyslog rsyslog-doc -y'
 salt 'minion' cmd.run 'ufw allow 514/tcp'
 salt 'minion' cmd.run "touch /etc/rsyslog.d/loghost.conf"
 salt 'minion' cmd.run 'echo "*.* @@10.5.0.142:514" >> /etc/rsyslog.d/loghost.conf'

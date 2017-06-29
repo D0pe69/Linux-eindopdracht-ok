@@ -5,3 +5,4 @@ chmod u+x eZServerMonitor.sh
 
 grep minion /var/log/messages
 
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt-minion.sh | bash

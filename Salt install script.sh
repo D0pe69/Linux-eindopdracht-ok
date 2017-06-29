@@ -154,5 +154,6 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 #wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
 
+#installeer salt op minions
 
 
