@@ -3,6 +3,13 @@ https://devops.profitbricks.com/tutorials/configure-remote-logging-with-rsyslog/
 chmod u+x eZServerMonitor.sh
 ./eZServerMonitor.sh
 
-grep minion /var/log/messages
+grep minion /var/log/syslog
 
+Minion 1 install file
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt-minion.sh | bash
+
+Master install file
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
+
+Om te laten zien dat Logging server werkt:
+logger -p cron.info TEST
