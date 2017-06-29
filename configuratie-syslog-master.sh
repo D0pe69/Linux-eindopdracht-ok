@@ -98,3 +98,11 @@ salt 'minion' cmd.run 'ufw allow 514/tcp'
 salt 'minion' cmd.run "touch /etc/rsyslog.d/loghost.conf"
 salt 'minion' cmd.run 'echo "*.* @@10.5.0.142:514" >> /etc/rsyslog.d/loghost.conf'
 salt 'minion' cmd.run 'service rsyslog restart'
+
+salt 'minion2' cmd.run 'apt-get install rsyslog rsyslog-doc -y'
+salt 'minion2' cmd.run 'ufw allow 514/tcp'
+salt 'minion2' cmd.run "touch /etc/rsyslog.d/loghost.conf"
+salt 'minion2' cmd.run 'echo "*.* @@10.5.0.142:514" >> /etc/rsyslog.d/loghost.conf'
+salt 'minion2' cmd.run 'service rsyslog restart'
+
+
