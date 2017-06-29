@@ -142,8 +142,9 @@ apt-get update -y
 #installeer
 apt-get install syslog-ng-core -y
 
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash"
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash
 
+#wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt-minion.sh | bash
 
 
 
