@@ -11,6 +11,9 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 Minion 2 install file
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/salt-minion2.sh | bash
 
+#setup monitoring service
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/configuratie-syslog-master.sh |bash
+
 Master install file
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
@@ -20,8 +23,13 @@ salt '*' cmd.run 'logger -p cron.info TEST'
 #netdata starten
 /usr/sbin/netdata
 
-#netdata doet het
-http://10.5.0.142:19999/
+#netdata doet het op poort
+:19999/
+
+#om de ip-adressen te zien
+nano /var/log/netwerklijst.txt
+
+
 
 service netdata restart
 
@@ -32,9 +40,28 @@ grep minion /var/log/syslog
 
 
 Installatie monitoring service
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh |bash
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash
 
 #logging service aanzetten minion
 ./eZServerMonitor.sh --all
 salt '*' cmd.run './eZServerMonitor.sh --all'
 salt 'minion2' cmd.run './eZServerMonitor.sh --all'
+
+
+
+Stappenplan master install:
+
+1 install salt op master
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
+
+2 zet de syslog op
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/configuratie-syslog-master.sh | bash
+
+3 installeer de monitoring service
+wget -O -https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash
+
+4 Draai deze scripts op de minion  om daar wordpress op te installeren
+wget -O -https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/wordpress.sh | bash
+
+
+
