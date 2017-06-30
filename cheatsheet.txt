@@ -57,6 +57,9 @@ wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/
 2 zet de syslog op
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/configuratie-syslog-master.sh | bash
 
+3 Installeer Docker
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash
+
 3 installeer de monitoring service
 wget -O -https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash
 

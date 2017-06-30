@@ -28,3 +28,4 @@ apt-get install -y docker-ce -y
 docker run hello-world
 
 
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash

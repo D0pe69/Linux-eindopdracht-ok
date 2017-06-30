@@ -132,9 +132,9 @@ salt-key --list all
 salt '*' test.ping
 
 #opzetten logging service
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/configuratie-syslog-master.sh | bash
 
-sleep 10
+
+#sleep 10
 
 #installeren van syslog aan de hand van: https://www.balabit.com/blog/installing-the-latest-syslog-ng-on-ubuntu-and-other-deb-distributions/
 #pak de release key
@@ -153,14 +153,14 @@ sleep 10
 #apt-get install syslog-ng-core -y
 
 #installeer docker op main
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash
-sleep 10
+#wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Docker-install-main.sh | bash
+#sleep 10
 #wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
 
 #installeer docker op minions
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/docker-minion.sh | bash 
-sleep 10
+ 
+#sleep 10
 #installeer monitoring service
-wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash 
-sleep 10
+#wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh | bash 
+#sleep 10
