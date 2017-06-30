@@ -28,7 +28,6 @@ chmod u+x eZServerMonitor.sh
 
 
 #installeer op minion 1
-salt 'minion' cmd.run 'wget --content-disposition http://www.ezservermonitor.com/esm-sh/downloads/version/2.2'
 salt 'minion' cmd.run 'apt-get install unzip -y'
 salt 'minion' cmd.run "wget --content-disposition http://www.ezservermonitor.com/esm-sh/downloads/version/2.2"
 
