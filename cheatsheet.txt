@@ -8,8 +8,26 @@ grep minion /var/log/syslog
 Minion 1 install file
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt-minion.sh | bash
 
+Minion 2 install file
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/salt-minion2.sh | bash
+
 Master install file
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/Salt%20install%20script.sh | bash
 
 Om te laten zien dat Logging server werkt:
-logger -p cron.info TEST
+salt '*' cmd.run 'logger -p cron.info TEST'
+
+#netdata starten
+/usr/sbin/netdata
+
+#netdata doet het
+http://10.5.0.142:19999/
+
+service netdata restart
+
+http://145.37.234.182:19999/
+
+grep minion /var/log/syslog
+
+#logging service aanzetten minion
+salt 'minion' cmd.run './eZServerMonitor.sh --all'
