@@ -35,4 +35,6 @@ Installatie monitoring service
 wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh |bash
 
 #logging service aanzetten minion
+./eZServerMonitor.sh --all
 salt 'minion' cmd.run './eZServerMonitor.sh --all'
+salt 'minion2' cmd.run './eZServerMonitor.sh --all'
