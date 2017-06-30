@@ -29,5 +29,10 @@ http://145.37.234.182:19999/
 
 grep minion /var/log/syslog
 
+
+
+Installatie monitoring service
+wget -O - https://raw.githubusercontent.com/D0pe69/Linux-eindopdracht-ok/master/monitoring-service.sh |bash
+
 #logging service aanzetten minion
 salt 'minion' cmd.run './eZServerMonitor.sh --all'
